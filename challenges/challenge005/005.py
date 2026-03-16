@@ -7,19 +7,20 @@ from rich import print
 class Gamer:
     def __init__(self, name='', user=''):
         self.name = name
-        self.nick = user
+        self.user = user
         self.favorite_games = list()
 
     def add_favorites(self, games):
         self.favorite_games.append(games)
+        self.favorite_games.sort()
 
     def profile_card(self):
-        title = f'Player <{self.nick}>'
+        title = f'Player <{self.user}>'
         content = f'Real name: {self.name}\n'
-        content += f'Favorite Games: \n'
-        self.favorite_games.sort()
+        content += f'Favorite Games: '
+
         for g in self.favorite_games:
-            content += f':video_game: [blue]{g}[/]\n'
+            content += f'\n:video_game: [blue]{g}[/]'
         box = Panel(content, title=title, width=50)
         return print(box)
 
