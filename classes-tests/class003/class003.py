@@ -1,33 +1,34 @@
-class ContaBancaria:
+class BankAccount:
     """
-    Cria uma conta bancaria e permite fazer saque e depósitos.
-    Essa conta bancaria precisa de um ‘ID’ e nome como obrigatório e o saldo é o opcional.
-    Nessa classe tem métodos para depositar e sacar valores da conta bancaria
+    Creates a bank account and allows withdrawals and deposits.
+    This bank account requires an 'ID' and name as mandatory fields, and the balance is optional.
+    This class has methods for depositing and withdrawing funds from the bank account.
     """
-    def __init__(self, id, nome, saldo=0): # Método Construtor
+
+    def __init__(self, id, name, balance=0): # Constructor Method
         # Atributos de Instância
         self.id = id
-        self.titular = nome
-        self.saldo = saldo
+        self.holder = name
+        self.balance = balance
 
     # Métodos de Instância
     def __str__(self): # Dunder Attribute
-        return  f'A conta {self.id} de {self.titular} tem R${self.saldo:,.2f} de saldo.'
+        return  f'The account {self.id} for {self.holder} has ${self.balance:,.2f} of balance.'
 
-    def depositar(self, valor):
-        self.saldo += valor
-        print(f'- Deposito de R${valor:,.2f} autorizado na conta {self.id}.')
+    def deposit(self, value):
+        self.balance += value
+        print(f'- Deposit of ${value:,.2f} authorized on the account {self.id}.\n')
 
-    def sacar(self, valor):
-        if valor > self.saldo:
-            print(f'Saldo NEGADO de R${valor:,.2f} na conta {self.id}.\nSALDO INSUFICIENTE.')
+    def withdrawal(self, value):
+        if value > self.balance:
+            print(f'Withdrawal denied of ${value:,.2f} on the account {self.id}.\nINSUFFICIENT BALANCE.')
         else:
-            self.saldo -= valor
-            print(f'- Saque de R${valor:,.2f} autorizado na conta {self.id}.')
+            self.balance -= value
+            print(f'- Withdrawal of ${value:,.2f} authorized on the account {self.id}.')
 
 
 # Main Program
-conta1 = ContaBancaria(112, 'Gustavo', 3000)
-conta1.depositar(500)
-conta1.sacar(2_000_000)
-print(conta1)
+account1 = BankAccount(112, 'Gustavo', 3000)
+account1.deposit(500)
+account1.withdrawal(2_000_000)
+print(account1)
