@@ -1,5 +1,5 @@
 from rich import print
 
-print('Olá, [red]Mundo[/]! :earth_americas:')
-print('Olá, [bold blue]Pequeno Gafanhoto[/] :vulcan_salute:')
-print('Hora de acordar! :alarm_clock: :-1:')
+print('Hello, [red]World[/]! :earth_americas:')
+print('Hello, [bold blue]Little Grasshopper[/] :vulcan_salute:')
+print('Time to wake up! :alarm_clock: :-1:')

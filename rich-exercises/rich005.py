@@ -1,7 +1,7 @@
 from rich.traceback import install
 install()
 
-def divisao(x, y):
+def division(x, y):
     return x / y
 
-print(divisao(50, 0))
+print(division(50, 0))
