@@ -3,33 +3,39 @@
 from rich import print
 
 class Pen:
-    def __init__(self, color):
-        self.color = color
+    def __init__(self, color='white'):
+        self.color = color.lower().strip()
         self.capped = True
 
     def uncap(self):
         self.capped = False
 
+    def cap(self):
+        self.capped = True
+
     def write(self, txt):
         if self.capped:
-            print(f':stop_sign: [red]The pen [{self.color}]{self.color}[/] is capped. Cannot write.[/]')
+            print(f':prohibited:[red]The pen [{self.color}]{self.color}[/] is capped. Cannot write.[/]')
         else:
             print(f'[{self.color}] {txt} [/]')
 
     @staticmethod
-    def break_line():
-        return print('\n')
+    def break_line(qtt=1):
+        return print('\n' * qtt)
 
 # Main program
-p1 = Pen("blue")
+p1 = Pen("Blue")
 p2 = Pen("red")
-p3 = Pen("green")
+p3 = Pen("Green")
 
 p1.uncap()
 p2.uncap()
 p3.uncap()
 
 p1.write('Hello! How are you ?')
-p1.break_line()
+p1.break_line(2)
 p2.write('Hello Gafanhoto! Lets do classes-tests.')
 p3.write('Learning Python with Curso em Video')
+p3.break_line(1)
+p3.cap()
+p3.write('Is it going to work with capped pen ?')
