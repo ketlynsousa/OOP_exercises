@@ -29,7 +29,7 @@ class RemoteControl:
                 if volume <= self.current_volume:
                     content += f'[black on cyan] [/]'
                 else:
-                    content += f'[yellow on yellow] [/]'
+                    content += f'[black on white] [/]'
 
         tv = Panel(content, title='[ TV ]', width=35)
         print(tv)
@@ -37,7 +37,46 @@ class RemoteControl:
     def turn_on_off(self):
         self.tv_on = not self.tv_on
 
+    def more_channel(self):
+        if self.tv_on:
+            if self.current_channel == RemoteControl.max_channel:
+                self.current_channel = RemoteControl.min_channel
+            else:
+                self.current_channel += 1
 
-c = RemoteControl(4,5)
+    def less_channel(self):
+        if self.tv_on:
+            if self.current_channel == RemoteControl.min_channel:
+                self.current_channel = RemoteControl.max_channel
+            else:
+                self.current_channel -= 1
+
+    def more_volume(self):
+        if self.tv_on:
+            if self.current_volume != RemoteControl.max_volume:
+                self.current_volume += 1
+
+    def less_volume(self):
+        if self.tv_on:
+            if self.current_volume != RemoteControl.min_volume:
+                self.current_volume -= 1
+
+
+# Main Program
+c = RemoteControl()
 c.turn_on_off()
+
+# Increasing and Decreasing channels
+c.more_channel()
+c.more_channel()
+c.more_channel()
+c.less_channel()
+
+# Increasing and Decreasing volume
+c.more_volume()
+c.more_volume()
+c.more_volume()
+c.less_volume()
+
+# Display tv screen
 c.show_screen()
