@@ -64,19 +64,21 @@ class RemoteControl:
 
 # Main Program
 c = RemoteControl()
-c.turn_on_off()
+while True:
+    c.show_screen()
+    command = str(input(f'< CH{c.current_channel} >   + VOL{c.current_volume} - '))
+    match command:
+        case '0':
+            break
+        case '@':
+            c.turn_on_off()
+        case '>':
+            c.more_channel()
+        case '<':
+          c.less_channel()
+        case '+':
+            c.more_volume()
+        case '-':
+            c.less_volume()
 
-# Increasing and Decreasing channels
-c.more_channel()
-c.more_channel()
-c.more_channel()
-c.less_channel()
-
-# Increasing and Decreasing volume
-c.more_volume()
-c.more_volume()
-c.more_volume()
-c.less_volume()
-
-# Display tv screen
-c.show_screen()
+    print('\n' * 10)
