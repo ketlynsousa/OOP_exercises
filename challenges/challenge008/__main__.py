@@ -1,4 +1,4 @@
-from challenges.challenge008.Polygon import Square, Circle
+from challenges.challenge008.polygon import Square, Circle
 from rich import print
 
 def main():
