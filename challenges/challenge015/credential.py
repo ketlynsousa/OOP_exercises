@@ -28,8 +28,8 @@ class Credential:
     def validate(self, key) -> bool:
         user = sha256(key.strip().encode('utf-8')).hexdigest()
         if user == self.__hash:
-            print(f'[green]Valid password![/]')
+            print(f'[green]Correct password![/]')
             return True
         else:
-            print('[red]Invalid password![/]')
+            print(f'[red]Incorrect password![/]')
             return False
