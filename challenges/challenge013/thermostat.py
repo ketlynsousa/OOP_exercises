@@ -3,7 +3,7 @@
 # And as you turn it to increase or decrease the temperature, it changes by 0.5°C.
 """
  - Thermostat (class)
- - __temperature
+ - __temperature - private attribute
  - @temperature # validate temperature attribute
  - @ftemperature # return formatted temperature
 """
